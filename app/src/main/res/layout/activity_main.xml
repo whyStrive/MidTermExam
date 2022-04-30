@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#728d65"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true">
+
+    <ImageView
+        android:id="@+id/iv_homepage"
+        android:layout_width="59.51dp"
+        android:layout_height="97.77dp"
+        android:src="@mipmap/ic_homepage"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp" />
+
+    <ImageView
+        android:layout_width="59.77dp"
+        android:layout_height="100.07dp"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:src="@mipmap/ic_color"/>
+    
+    <ImageView
+        android:layout_width="47.95dp"
+        android:layout_height="101.98dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:src="@mipmap/ic_idea"/>
+
+    <ImageView
+        android:layout_width="63.62dp"
+        android:layout_height="99.82dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:src="@mipmap/ic_favorite"/>
+    
+    <ImageView
+        android:layout_width="64.02dp"
+        android:layout_height="94.02dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:src="@mipmap/ic_game"/>
+
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:src="@mipmap/ic_swipe_indicator"/>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>
