@@ -21,4 +21,11 @@
     <style name="LoginActivityTheme" parent="Theme.MidTermExam">
         <item name="android:statusBarColor">#FFF</item>
     </style>
+
+
+    <!--八边形-->
+    <style name="octagon">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">55dp</item>
+    </style>
 </resources>

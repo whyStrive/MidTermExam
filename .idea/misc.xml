@@ -6,8 +6,12 @@
         <entry key="..\:/AndroidStudio_project/MidTermExam/app/src/main/res/drawable/button.xml" value="0.1575" />
         <entry key="..\:/AndroidStudio_project/MidTermExam/app/src/main/res/drawable/edit_text.xml" value="0.2065" />
         <entry key="..\:/AndroidStudio_project/MidTermExam/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2065" />
+        <entry key="..\:/AndroidStudio_project/MidTermExam/app/src/main/res/drawable/octagon.xml" value="0.2065" />
+        <entry key="..\:/AndroidStudio_project/MidTermExam/app/src/main/res/layout/activity_hold.xml" value="0.26621847886098404" />
         <entry key="..\:/AndroidStudio_project/MidTermExam/app/src/main/res/layout/activity_login.xml" value="0.26621847886098404" />
         <entry key="..\:/AndroidStudio_project/MidTermExam/app/src/main/res/layout/activity_main.xml" value="0.26621847886098404" />
+        <entry key="..\:/AndroidStudio_project/MidTermExam/app/src/main/res/layout/fragment_idea.xml" value="0.225" />
+        <entry key="..\:/AndroidStudio_project/MidTermExam/app/src/main/res/layout/item_idea_rv.xml" value="0.26621847886098404" />
       </map>
     </option>
   </component>

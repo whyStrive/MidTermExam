@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.activity.LoginActivity"
+    tools:context="com.redrock.midtermexam.view.activity.LoginActivity"
     android:fitsSystemWindows="true">
 
     <ImageView
@@ -44,7 +44,6 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
             android:layout_marginEnd="40dp">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -110,6 +109,25 @@
         app:layout_constraintHorizontal_bias="0.436"
         app:layout_constraintStart_toStartOf="@+id/cardView"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <CheckBox
+        android:id="@+id/cb_login"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="132dp"
+        app:layout_constraintEnd_toEndOf="@+id/btn_login"
+        app:layout_constraintLeft_toLeftOf="@+id/btn_login"
+        app:layout_constraintTop_toBottomOf="@id/btn_login" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/cb_login"
+        app:layout_constraintTop_toTopOf="@id/cb_login"
+        app:layout_constraintBottom_toBottomOf="@+id/cb_login"
+        android:text="记住账户"/>
 
     <androidx.cardview.widget.CardView
         android:layout_width="150dp"

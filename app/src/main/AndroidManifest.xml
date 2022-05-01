@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.midtermexam" >
+    package="com.example.midtermexam">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".config.APP"
+        android:name="com.redrock.midtermexam.config.APP"
         android:allowBackup="true"
         android:icon="@mipmap/ic_app"
         android:label="@string/app_name"
@@ -14,7 +14,11 @@
         android:theme="@style/Theme.MidTermExam"
         android:usesCleartextTraffic="true">
         <activity
-            android:name="com.example.midtermexam.view.activity.LoginActivity"
+            android:name="com.redrock.midtermexam.view.activity.HoldActivity"
+            android:exported="false"
+            android:theme="@style/LoginActivityTheme"/>
+        <activity
+            android:name="com.redrock.midtermexam.view.activity.LoginActivity"
             android:exported="true"
             android:theme="@style/LoginActivityTheme">
             <intent-filter>
@@ -24,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="com.redrock.midtermexam.MainActivity"
             android:exported="false"
             android:theme="@style/MainActivityTheme" />
     </application>

@@ -1,4 +1,4 @@
-package com.example.midtermexam.model
+package com.redrock.midtermexam.model
 
 /**
  * @author : why

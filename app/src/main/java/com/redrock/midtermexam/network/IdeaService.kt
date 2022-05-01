@@ -1,11 +1,12 @@
-package com.example.midtermexam.network
+package com.redrock.midtermexam.network
 
-import com.example.midtermexam.model.LoginModel
-import com.example.midtermexam.model.RegisterModel
+import com.redrock.midtermexam.model.IdeaModel
+import com.redrock.midtermexam.model.LoginModel
+import com.redrock.midtermexam.model.RegisterModel
 import retrofit2.Call
-import retrofit2.http.Body
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
 import retrofit2.http.POST
 
 /**
@@ -15,7 +16,7 @@ import retrofit2.http.POST
  */
 
 //Retrofit的
-interface ApiService {
+interface IdeaService {
 
     //注册
     @FormUrlEncoded
@@ -30,5 +31,9 @@ interface ApiService {
     @POST("user/login")
     fun login(@Field("phone_number") phoneNum: Long): Call<LoginModel>
 
+
+    //灵感首页
+    @GET("idea/idea")
+    fun idea():Call<IdeaModel>
 
 }

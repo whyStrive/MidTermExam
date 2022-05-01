@@ -1,10 +1,9 @@
-package com.example.midtermexam
+package com.redrock.midtermexam
 
-import android.util.Log
-import com.example.midtermexam.model.LoginModel
-import com.example.midtermexam.network.ApiService
-import com.example.midtermexam.network.ServiceCreator
-import com.example.midtermexam.util.getResponse
+import com.redrock.midtermexam.model.LoginModel
+import com.redrock.midtermexam.network.IdeaService
+import com.redrock.midtermexam.network.ServiceCreator
+import com.redrock.midtermexam.util.getResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -15,7 +14,7 @@ import kotlinx.coroutines.withContext
  */
 object Repository {
 
-    private val api = ServiceCreator.create<ApiService>()
+    private val api = ServiceCreator.create<IdeaService>()
 
     //登录
     suspend fun getLoginResult(phoneNum: Long): LoginModel =
@@ -27,5 +26,11 @@ object Repository {
     suspend fun getRegisterResult(phoneNum: Long, name: String) =
         withContext(Dispatchers.IO) {
             api.register(phoneNum, name).getResponse()
+        }
+
+    //灵感首页
+    suspend fun getIdeaResult()=
+        withContext(Dispatchers.IO){
+            api.idea().getResponse()
         }
 }

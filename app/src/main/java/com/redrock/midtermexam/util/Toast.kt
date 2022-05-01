@@ -1,7 +1,7 @@
-package com.example.midtermexam.util
+package com.redrock.midtermexam.util
 
 import android.widget.Toast
-import com.example.midtermexam.config.APP
+import com.redrock.midtermexam.config.APP
 
 /**
  * @author : why

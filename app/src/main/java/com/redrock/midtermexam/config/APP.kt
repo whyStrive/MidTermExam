@@ -1,4 +1,4 @@
-package com.example.midtermexam.config
+package com.redrock.midtermexam.config
 
 import android.app.Application
 import android.content.Context

@@ -1,14 +1,15 @@
-package com.example.midtermexam.view.activity
+package com.redrock.midtermexam.view.activity
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import com.example.midtermexam.MainActivity
+import com.redrock.midtermexam.MainActivity
 import com.example.midtermexam.databinding.ActivityLoginBinding
-import com.example.midtermexam.util.startWithData
-import com.example.midtermexam.util.toast
-import com.example.midtermexam.view.viewmodel.LoginViewModel
+import com.redrock.midtermexam.util.startWithData
+import com.redrock.midtermexam.util.toast
+import com.redrock.midtermexam.view.viewmodel.LoginViewModel
 import kotlinx.coroutines.launch
 
 
@@ -57,6 +58,18 @@ class LoginActivity : AppCompatActivity() {
                     }
                 }
             }
+            //记住账户
+            val editor = getSharedPreferences("account", Context.MODE_PRIVATE).edit()
+            if (!binding.cbLogin.isChecked) {
+                editor.clear()
+            } else {
+                editor.apply {
+                    putLong("phoneNum", binding.etLoginPhoneNum.text.toString().toLong())
+                    putString("name", binding.etLoginName.text.toString())
+                    putBoolean("remember",true)
+                    apply()
+                }
+            }
         }
         //注册
         binding.tvLoginRegister.setOnClickListener {
@@ -76,11 +89,23 @@ class LoginActivity : AppCompatActivity() {
                     val result = vm.getRegisterResult(phoneNum.toLong(), name)
                     if (result.message == "成功注册") {
                         "注册成功！现在您可以用此账号登录".toast()
-                    } else if (result.message == "账号已存在！") {
+                    } else if (result.message == "账号已存在") {
                         "该账号已存在！".toast()
                     }
                 }
             }
+        }
+
+        //检查是否保存账户，是则自动输入内容
+        val prefs=getSharedPreferences("account",Context.MODE_PRIVATE)
+        if (prefs.getBoolean("remember",false)) {
+            val phoneNum = prefs.getLong("phoneNum", 0L)
+            val name = prefs.getString("name", "保存账户失败")
+            binding.etLoginPhoneNum.setText(phoneNum.toString())
+            binding.etLoginName.setText(name)
+            binding.cbLogin.isChecked=true
+        }else{
+            binding.cbLogin.isChecked=false
         }
     }
 }

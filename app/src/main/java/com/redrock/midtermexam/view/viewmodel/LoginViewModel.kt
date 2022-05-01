@@ -1,9 +1,9 @@
-package com.example.midtermexam.view.viewmodel
+package com.redrock.midtermexam.view.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.example.midtermexam.Repository
-import com.example.midtermexam.model.LoginModel
-import com.example.midtermexam.model.RegisterModel
+import com.redrock.midtermexam.Repository
+import com.redrock.midtermexam.model.LoginModel
+import com.redrock.midtermexam.model.RegisterModel
 
 /**
  * @author : why

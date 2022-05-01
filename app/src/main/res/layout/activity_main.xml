@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context="com.redrock.midtermexam.MainActivity"
     android:background="#728d65"
     android:orientation="vertical"
     android:fitsSystemWindows="true">
@@ -25,6 +25,7 @@
         android:src="@mipmap/ic_color"/>
     
     <ImageView
+        android:id="@+id/iv_idea"
         android:layout_width="47.95dp"
         android:layout_height="101.98dp"
         android:layout_gravity="center"
