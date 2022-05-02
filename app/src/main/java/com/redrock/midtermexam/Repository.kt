@@ -1,7 +1,9 @@
 package com.redrock.midtermexam
 
 import com.redrock.midtermexam.model.LoginModel
+import com.redrock.midtermexam.network.ColorService
 import com.redrock.midtermexam.network.IdeaService
+import com.redrock.midtermexam.network.LoginService
 import com.redrock.midtermexam.network.ServiceCreator
 import com.redrock.midtermexam.util.getResponse
 import kotlinx.coroutines.Dispatchers
@@ -13,24 +15,41 @@ import kotlinx.coroutines.withContext
  * @email: why_wanghy@qq.com
  */
 object Repository {
+    //灵感
+    private val ideaService = ServiceCreator.create<IdeaService>()
+    //登录
+    private val loginService = ServiceCreator.create<LoginService>()
+    //颜色
+    private val colorService = ServiceCreator.create<ColorService>()
 
-    private val api = ServiceCreator.create<IdeaService>()
 
     //登录
     suspend fun getLoginResult(phoneNum: Long): LoginModel =
         withContext(Dispatchers.IO) {
-            api.login(phoneNum).getResponse()
+            loginService.login(phoneNum).getResponse()
         }
 
     //注册
     suspend fun getRegisterResult(phoneNum: Long, name: String) =
         withContext(Dispatchers.IO) {
-            api.register(phoneNum, name).getResponse()
+            loginService.register(phoneNum, name).getResponse()
         }
 
     //灵感首页
-    suspend fun getIdeaResult()=
+    suspend fun getIdeaResult() =
+        withContext(Dispatchers.IO) {
+            ideaService.idea().getResponse()
+        }
+
+    //颜色page
+    suspend fun getColorPage()=
         withContext(Dispatchers.IO){
-            api.idea().getResponse()
+            colorService.colorPage().getResponse()
+        }
+
+    //颜色
+    suspend fun getColor(themeId:Int)=
+        withContext(Dispatchers.IO){
+            colorService.color(themeId).getResponse()
         }
 }

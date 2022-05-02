@@ -18,6 +18,7 @@
         android:layout_marginTop="30dp" />
 
     <ImageView
+        android:id="@+id/iv_color"
         android:layout_width="59.77dp"
         android:layout_height="100.07dp"
         android:layout_marginTop="50dp"
@@ -33,6 +34,7 @@
         android:src="@mipmap/ic_idea"/>
 
     <ImageView
+        android:id="@+id/iv_favorite"
         android:layout_width="63.62dp"
         android:layout_height="99.82dp"
         android:layout_gravity="center"

@@ -1,13 +1,8 @@
 package com.redrock.midtermexam.network
 
-import com.redrock.midtermexam.model.IdeaModel
-import com.redrock.midtermexam.model.LoginModel
-import com.redrock.midtermexam.model.RegisterModel
+import com.redrock.midtermexam.model.*
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 /**
  * @author : why
@@ -15,22 +10,7 @@ import retrofit2.http.POST
  * @email: why_wanghy@qq.com
  */
 
-//Retrofit的
 interface IdeaService {
-
-    //注册
-    @FormUrlEncoded
-    @POST("user/register")
-    fun register(
-        @Field("phone_number") phoneNum: Long,
-        @Field("name") name: String
-    ): Call<RegisterModel>
-
-    //登录
-    @FormUrlEncoded
-    @POST("user/login")
-    fun login(@Field("phone_number") phoneNum: Long): Call<LoginModel>
-
 
     //灵感首页
     @GET("idea/idea")

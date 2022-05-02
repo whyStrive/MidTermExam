@@ -10,6 +10,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object{
         //以下为跳转时传参，用于HoldActivity判断具体该用那个fragment
+        const val COLOR=1
         const val IDEA=2
     }
 
@@ -26,7 +27,10 @@ class MainActivity : AppCompatActivity() {
         //灵感
         binding.ivIdea.setOnClickListener{
             startHoldActivity(IDEA)
-            finish()
+        }
+        //颜色
+        binding.ivColor.setOnClickListener {
+            startHoldActivity(COLOR)
         }
     }
 
