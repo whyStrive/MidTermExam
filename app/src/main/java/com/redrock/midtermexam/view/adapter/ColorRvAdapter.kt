@@ -47,7 +47,7 @@ class ColorRvAdapter(private val colorList: ArrayList<ColorRv>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val color = colorList[position]
-        Log.d("www", "(:)-->> $color");
+        //Log.d("www", "(:)-->> $color");
         holder.constraintLayout.setBackgroundColor(android.graphics.Color.parseColor("#"+color.hex))
         holder.apply {
             name.text = color.name

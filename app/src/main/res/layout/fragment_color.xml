@@ -19,15 +19,12 @@
         android:layout_width="match_parent"
         android:layout_height="20dp"
         app:tabIndicatorColor="#00ff00"
-        app:tabIndicatorGravity="top"
+        app:tabIndicatorGravity="center"
         app:tabMode="scrollable"
         app:tabSelectedTextColor="#e10905"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="#c8dbb8"
-        app:tabMaxWidth="0dp"
-        app:tabGravity="fill"
-        />
+        android:background="#c8dbb8" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

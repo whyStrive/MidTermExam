@@ -53,7 +53,7 @@ class ColorFragment : Fragment() {
             val len = vm.getColorPage().data.count
             //放入fragment
             repeat(len) {
-                fragments.add(VpColorFragment(it+1))
+                fragments.add(VpColorFragment(it + 1))
             }
             binding?.vpColor?.adapter = ColorVpAdapter(requireActivity(), fragments)
             //设置tabLayout
@@ -63,7 +63,7 @@ class ColorFragment : Fragment() {
                     it.vpColor,
                     object : TabLayoutMediator.TabConfigurationStrategy {
                         override fun onConfigureTab(tab: TabLayout.Tab, position: Int) {
-                            tab.setText("-")
+                            tab.setText("·")
                         }
                     }
                 ).attach()
@@ -72,15 +72,6 @@ class ColorFragment : Fragment() {
             //设置监听，当前页面改变时，更新title和数据
             binding?.vpColor?.registerOnPageChangeCallback(object :
                 ViewPager2.OnPageChangeCallback() {
-                override fun onPageScrolled(
-                    position: Int,
-                    positionOffset: Float,
-                    positionOffsetPixels: Int
-                ) {
-                    super.onPageScrolled(position, positionOffset, positionOffsetPixels)
-                    vm.page.value = binding?.vpColor?.currentItem!!
-                }
-
                 override fun onPageSelected(position: Int) {
                     super.onPageSelected(position)
                     vm.page.value = binding?.vpColor?.currentItem!!

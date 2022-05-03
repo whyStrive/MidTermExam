@@ -1,6 +1,7 @@
 package com.redrock.midtermexam.view.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -51,25 +52,36 @@ class VpColorFragment(val current: Int) : Fragment() {
 
     //初始化rv
     private fun initColorRv(vm: ColorViewModel, current: Int) {
-        //先清除
         lifecycleScope.launch {
             //添加颜色
             repeat(vm.getColor(current).data.colorList.size) {
-                val id = vm.getColor(current).data.colorList[it].id
-                val name = vm.getColor(current).data.colorList[it].name
-                val hex = vm.getColor(current).data.colorList[it].hex
-                val r = vm.getColor(current).data.colorList[it].r
-                val g = vm.getColor(current).data.colorList[it].g
-                val b = vm.getColor(current).data.colorList[it].b
-                val c = vm.getColor(current).data.colorList[it].c
-                val m = vm.getColor(current).data.colorList[it].m
-                val k = vm.getColor(current).data.colorList[it].k
-                val y = vm.getColor(current).data.colorList[it].y
+                var id: Int
+                var name: String
+                var hex: String
+                var r: Int
+                var g: Int
+                var b: Int
+                var c: Int
+                var m: Int
+                var k: Int
+                var y: Int
+                vm.getColor(current).data.colorList[it].apply {
+                    id = this.id
+                    name = this.name
+                    hex = this.hex
+                    r = this.r
+                    g = this.g
+                    b = this.b
+                    c = this.c
+                    m = this.m
+                    k = this.k
+                    y = this.y
+                }
                 colorList.add(ColorRv(id, name, hex, r, g, b, c, m, k, y))
             }
+            binding?.rvColorVp?.layoutManager = LinearLayoutManager(APP.appContext)
+            binding?.rvColorVp?.adapter = ColorRvAdapter(colorList)
         }
-        binding?.rvColorVp?.layoutManager = LinearLayoutManager(APP.appContext)
-        binding?.rvColorVp?.adapter = ColorRvAdapter(colorList)
     }
 
     override fun onDestroy() {
