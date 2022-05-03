@@ -16,43 +16,73 @@
         android:src="@mipmap/ic_homepage"
         android:layout_gravity="center"
         android:layout_marginTop="30dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="首页"
+        android:textColor="#FFF"
+        android:layout_gravity="center"/>
 
     <ImageView
         android:id="@+id/iv_color"
         android:layout_width="59.77dp"
         android:layout_height="100.07dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:layout_gravity="center"
         android:src="@mipmap/ic_color"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="色谱"
+        android:textColor="#FFF"
+        android:layout_gravity="center"/>
     
     <ImageView
         android:id="@+id/iv_idea"
         android:layout_width="47.95dp"
         android:layout_height="101.98dp"
         android:layout_gravity="center"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:src="@mipmap/ic_idea"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="灵感"
+        android:layout_gravity="center"
+        android:textColor="#FFF"/>
 
     <ImageView
         android:id="@+id/iv_favorite"
         android:layout_width="63.62dp"
         android:layout_height="99.82dp"
         android:layout_gravity="center"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:src="@mipmap/ic_favorite"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="收藏"
+        android:textColor="#FFF"
+        android:layout_gravity="center"/>
     
     <ImageView
         android:layout_width="64.02dp"
         android:layout_height="94.02dp"
         android:layout_gravity="center"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:src="@mipmap/ic_game"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="游戏"
+        android:textColor="#FFF"
+        android:layout_gravity="center"/>
 
     <ImageView
         android:layout_width="32dp"
         android:layout_height="30dp"
         android:layout_gravity="center"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="15dp"
         android:src="@mipmap/ic_swipe_indicator"/>
 
 
