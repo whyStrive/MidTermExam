@@ -8,14 +8,14 @@ import com.google.gson.annotations.SerializedName
  * @email: why_wanghy@qq.com
  */
 data class IdeaModel(
-    val code:Int,
-    val message:String,
-    val data:List<IdeaBean>
+    val code: Int,
+    val message: String,
+    val data: List<IdeaBean>
 )
 
 data class IdeaBean(
-    val id:Int,
-    val name:String,
+    val id: Int,
+    val name: String,
     @SerializedName("image")
-    val imageUrl:String
+    val imageUrl: String
 )

@@ -1,6 +1,5 @@
 package com.redrock.midtermexam.view.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +7,6 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.midtermexam.R
-import com.redrock.midtermexam.model.Color
 import com.redrock.midtermexam.model.ColorRv
 import com.redrock.midtermexam.util.toast
 
@@ -48,7 +46,7 @@ class ColorRvAdapter(private val colorList: ArrayList<ColorRv>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val color = colorList[position]
         //Log.d("www", "(:)-->> $color");
-        holder.constraintLayout.setBackgroundColor(android.graphics.Color.parseColor("#"+color.hex))
+        holder.constraintLayout.setBackgroundColor(android.graphics.Color.parseColor("#" + color.hex))
         holder.apply {
             name.text = color.name
             hex.text = color.hex

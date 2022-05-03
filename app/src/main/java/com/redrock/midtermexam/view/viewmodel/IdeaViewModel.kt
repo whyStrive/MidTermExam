@@ -9,7 +9,7 @@ import com.redrock.midtermexam.model.IdeaModel
  * @time : 2022/5/1 11:52
  * @email: why_wanghy@qq.com
  */
-class IdeaViewModel :ViewModel(){
+class IdeaViewModel : ViewModel() {
 
     //灵感首页
     suspend fun getIdeaResult(): IdeaModel =

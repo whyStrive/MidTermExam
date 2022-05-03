@@ -26,7 +26,7 @@ class IdeaFragment : Fragment() {
     //rv
     val ideaList = ArrayList<IdeaRv>()
 
-    private var binding: FragmentIdeaBinding?=null
+    private var binding: FragmentIdeaBinding? = null
 
 
     override fun onCreateView(

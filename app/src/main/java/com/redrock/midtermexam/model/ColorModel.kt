@@ -8,27 +8,27 @@ import com.google.gson.annotations.SerializedName
  * @email: why_wanghy@qq.com
  */
 data class ColorModel(
-    val code:Int,
-    val message:String,
-    val data:ColorData
+    val code: Int,
+    val message: String,
+    val data: ColorData
 )
 
 data class ColorData(
     @SerializedName("has_more")
-    val hasMore:Boolean,
+    val hasMore: Boolean,
     @SerializedName("color_list")
-    val colorList:List<Color>
+    val colorList: List<Color>
 )
 
 data class Color(
-    val id:Int,
-    val name:String,
-    val hex:String,
-    val r:Int,
-    val g:Int,
-    val b:Int,
-    val c:Int,
-    val m:Int,
-    val k:Int,
-    val y:Int
+    val id: Int,
+    val name: String,
+    val hex: String,
+    val r: Int,
+    val g: Int,
+    val b: Int,
+    val c: Int,
+    val m: Int,
+    val k: Int,
+    val y: Int
 )

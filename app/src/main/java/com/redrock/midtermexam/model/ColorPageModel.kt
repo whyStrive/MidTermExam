@@ -8,18 +8,18 @@ import com.google.gson.annotations.SerializedName
  * @email: why_wanghy@qq.com
  */
 data class ColorPageModel(
-    val code:Int,
-    val message:String,
-    val data:ColorPageData
+    val code: Int,
+    val message: String,
+    val data: ColorPageData
 )
 
 data class ColorPageData(
-    val count:Int,
+    val count: Int,
     @SerializedName("list")
-    val colorList:List<ColorPage>
+    val colorList: List<ColorPage>
 )
 
 data class ColorPage(
-    val id:Int,
-    val theme:String
+    val id: Int,
+    val theme: String
 )

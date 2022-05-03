@@ -1,6 +1,5 @@
 package com.redrock.midtermexam.view.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,9 +7,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.midtermexam.R
+import com.google.android.material.imageview.ShapeableImageView
 import com.redrock.midtermexam.model.IdeaRv
 import com.redrock.midtermexam.util.toast
-import com.google.android.material.imageview.ShapeableImageView
 
 /**
  * @author : why

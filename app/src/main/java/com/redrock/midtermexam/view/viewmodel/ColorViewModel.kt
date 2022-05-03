@@ -14,7 +14,7 @@ import com.redrock.midtermexam.model.ColorPageModel
 class ColorViewModel : ViewModel() {
 
     //var page:Int=1
-    val page=MutableLiveData<Int>()
+    val page = MutableLiveData<Int>()
 
 
     //颜色page
@@ -23,6 +23,6 @@ class ColorViewModel : ViewModel() {
 
 
     //颜色
-    suspend fun getColor(themeId:Int):ColorModel=
+    suspend fun getColor(themeId: Int): ColorModel =
         Repository.getColor(themeId)
 }

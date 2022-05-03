@@ -6,7 +6,7 @@ package com.redrock.midtermexam.model
  * @email: why_wanghy@qq.com
  */
 data class IdeaRv(
-    val id:Int,
-    val name:String,
-    val imageUrl:String
+    val id: Int,
+    val name: String,
+    val imageUrl: String
 )

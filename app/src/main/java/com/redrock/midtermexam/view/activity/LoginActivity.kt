@@ -51,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
                 if (!binding.cbLogin.isChecked) {
                     editor1.apply {
                         clear()
-                        putBoolean("remember",false)
+                        putBoolean("remember", false)
                         apply()
                     }
                 } else {

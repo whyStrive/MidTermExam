@@ -17,8 +17,10 @@ import kotlinx.coroutines.withContext
 object Repository {
     //灵感
     private val ideaService = ServiceCreator.create<IdeaService>()
+
     //登录
     private val loginService = ServiceCreator.create<LoginService>()
+
     //颜色
     private val colorService = ServiceCreator.create<ColorService>()
 
@@ -42,14 +44,14 @@ object Repository {
         }
 
     //颜色page
-    suspend fun getColorPage()=
-        withContext(Dispatchers.IO){
+    suspend fun getColorPage() =
+        withContext(Dispatchers.IO) {
             colorService.colorPage().getResponse()
         }
 
     //颜色
-    suspend fun getColor(themeId:Int)=
-        withContext(Dispatchers.IO){
+    suspend fun getColor(themeId: Int) =
+        withContext(Dispatchers.IO) {
             colorService.color(themeId).getResponse()
         }
 }

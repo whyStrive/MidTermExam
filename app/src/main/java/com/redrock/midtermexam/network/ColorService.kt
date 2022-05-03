@@ -18,5 +18,5 @@ interface ColorService {
 
     //每一页颜色
     @GET("color/color_list")
-    fun color(@Query("theme_id") themeId:Int): Call<ColorModel>
+    fun color(@Query("theme_id") themeId: Int): Call<ColorModel>
 }

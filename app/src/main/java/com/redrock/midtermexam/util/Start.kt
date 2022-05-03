@@ -22,5 +22,5 @@ inline fun <reified T : Activity> Activity.startWithData(block: Intent.() -> Uni
 
 //不带参数的启动
 inline fun <reified T : Activity> Activity.start() {
-    startActivity(Intent(this,T::class.java))
+    startActivity(Intent(this, T::class.java))
 }

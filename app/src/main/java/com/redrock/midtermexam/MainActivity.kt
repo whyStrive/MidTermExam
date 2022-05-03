@@ -8,12 +8,11 @@ import com.redrock.midtermexam.view.activity.HoldActivity
 
 class MainActivity : AppCompatActivity() {
 
-    companion object{
+    companion object {
         //以下为跳转时传参，用于HoldActivity判断具体该用那个fragment
-        const val COLOR=1
-        const val IDEA=2
+        const val COLOR = 1
+        const val IDEA = 2
     }
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,11 +20,10 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
-        
 
 
         //灵感
-        binding.ivIdea.setOnClickListener{
+        binding.ivIdea.setOnClickListener {
             startHoldActivity(IDEA)
         }
         //颜色
@@ -35,14 +33,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     //启动HoldActivity的函数
-    private fun startHoldActivity(choice:Int){
+    private fun startHoldActivity(choice: Int) {
         //取出token
-        val token=intent.getStringExtra("token")
-        val refreshToken=intent.getStringExtra("refreshToken")
+        val token = intent.getStringExtra("token")
+        val refreshToken = intent.getStringExtra("refreshToken")
         //启动HoldActivity
         startWithData<HoldActivity> {
-            putExtra("token",token)
-            putExtra("refreshToken",refreshToken)
+            putExtra("token", token)
+            putExtra("refreshToken", refreshToken)
             putExtra("choice", choice)
         }
     }

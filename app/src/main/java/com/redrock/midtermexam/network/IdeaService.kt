@@ -1,8 +1,8 @@
 package com.redrock.midtermexam.network
 
-import com.redrock.midtermexam.model.*
+import com.redrock.midtermexam.model.IdeaModel
 import retrofit2.Call
-import retrofit2.http.*
+import retrofit2.http.GET
 
 /**
  * @author : why
@@ -14,6 +14,6 @@ interface IdeaService {
 
     //灵感首页
     @GET("idea/idea")
-    fun idea():Call<IdeaModel>
+    fun idea(): Call<IdeaModel>
 
 }

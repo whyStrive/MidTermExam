@@ -13,16 +13,16 @@ import com.redrock.midtermexam.util.toast
  * @time : 2022/5/2 19:50
  * @email: why_wanghy@qq.com
  */
-class SearchFragment:Fragment() {
+class SearchFragment : Fragment() {
 
-    var binding:FragmentSearchBinding?=null
+    var binding: FragmentSearchBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding= FragmentSearchBinding.inflate(inflater,container,false)
+        binding = FragmentSearchBinding.inflate(inflater, container, false)
         return binding?.root
     }
 
@@ -36,6 +36,6 @@ class SearchFragment:Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        binding=null
+        binding = null
     }
 }

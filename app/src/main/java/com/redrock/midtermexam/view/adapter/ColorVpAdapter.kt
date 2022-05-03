@@ -13,7 +13,10 @@ import com.redrock.midtermexam.view.fragment.VpColorFragment
  * 颜色首页vp2 的adapter ，vp2与fragment联合
  *
  */
-class ColorVpAdapter(activity:FragmentActivity,private val fragments:ArrayList<VpColorFragment>) :FragmentStateAdapter(activity){
+class ColorVpAdapter(
+    activity: FragmentActivity,
+    private val fragments: ArrayList<VpColorFragment>
+) : FragmentStateAdapter(activity) {
     override fun getItemCount(): Int {
         return fragments.size
     }
