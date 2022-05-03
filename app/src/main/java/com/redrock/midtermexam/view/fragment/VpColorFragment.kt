@@ -9,7 +9,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.midtermexam.databinding.FragmentIdeaBinding
 import com.example.midtermexam.databinding.FragmentVpColorBinding
 import com.redrock.midtermexam.config.APP
 import com.redrock.midtermexam.model.ColorRv
@@ -22,10 +21,10 @@ import kotlinx.coroutines.launch
  * @time : 2022/5/2 15:18
  * @email: why_wanghy@qq.com
  */
-class VpColorFragment : Fragment() {
+class VpColorFragment(val current: Int) : Fragment() {
 
     //ViewBinding
-    lateinit var binding: FragmentVpColorBinding
+    private var binding: FragmentVpColorBinding? = null
 
     //颜色rv
     val colorList = ArrayList<ColorRv>()
@@ -37,7 +36,7 @@ class VpColorFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentVpColorBinding.inflate(inflater, container, false)
-        return binding.root
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,33 +44,36 @@ class VpColorFragment : Fragment() {
 
         //获取ViewModel（虽然是外一层fragment的ViewModel，不过应该没啥影响吧？）
         val vm = ViewModelProvider(this).get(ColorViewModel::class.java)
-        initColorRv(vm,binding.rvColorVp)
+        binding?.rvColorVp?.let {
+            initColorRv(vm, current)
+        }
     }
 
     //初始化rv
-    private fun initColorRv(vm: ColorViewModel, rv: RecyclerView) {
+    private fun initColorRv(vm: ColorViewModel, current: Int) {
         //先清除
-        colorList.clear()
         lifecycleScope.launch {
             //添加颜色
-            repeat(vm.getColor(vm.page).data.colorList.size) {
-                colorList.add(
-                    ColorRv(
-                        vm.getColor(vm.page).data.colorList[it].id,
-                        vm.getColor(vm.page).data.colorList[it].name,
-                        vm.getColor(vm.page).data.colorList[it].hex,
-                        vm.getColor(vm.page).data.colorList[it].r,
-                        vm.getColor(vm.page).data.colorList[it].g,
-                        vm.getColor(vm.page).data.colorList[it].b,
-                        vm.getColor(vm.page).data.colorList[it].c,
-                        vm.getColor(vm.page).data.colorList[it].m,
-                        vm.getColor(vm.page).data.colorList[it].k,
-                        vm.getColor(vm.page).data.colorList[it].y
-                    )
-                )
+            repeat(vm.getColor(current).data.colorList.size) {
+                val id = vm.getColor(current).data.colorList[it].id
+                val name = vm.getColor(current).data.colorList[it].name
+                val hex = vm.getColor(current).data.colorList[it].hex
+                val r = vm.getColor(current).data.colorList[it].r
+                val g = vm.getColor(current).data.colorList[it].g
+                val b = vm.getColor(current).data.colorList[it].b
+                val c = vm.getColor(current).data.colorList[it].c
+                val m = vm.getColor(current).data.colorList[it].m
+                val k = vm.getColor(current).data.colorList[it].k
+                val y = vm.getColor(current).data.colorList[it].y
+                colorList.add(ColorRv(id, name, hex, r, g, b, c, m, k, y))
             }
-            rv.layoutManager=LinearLayoutManager(APP.appContext)
-            rv.adapter=ColorRvAdapter(colorList)
         }
+        binding?.rvColorVp?.layoutManager = LinearLayoutManager(APP.appContext)
+        binding?.rvColorVp?.adapter = ColorRvAdapter(colorList)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
     }
 }

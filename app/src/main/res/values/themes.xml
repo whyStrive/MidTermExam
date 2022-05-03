@@ -22,6 +22,10 @@
         <item name="android:statusBarColor">#FFF</item>
     </style>
 
+    <style name="ColorFragmentTheme" parent="Theme.MidTermExam">
+        <item name="android:statusBarColor">#c8dbb8</item>
+    </style>
+
 
     <!--八边形-->
     <style name="octagon">

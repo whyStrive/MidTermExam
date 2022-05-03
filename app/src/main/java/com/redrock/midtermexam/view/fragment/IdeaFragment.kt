@@ -20,13 +20,13 @@ import kotlinx.coroutines.launch
  * @time : 2022/5/1 09:19
  * @email: why_wanghy@qq.com
  */
-object IdeaFragment : Fragment() {
+class IdeaFragment : Fragment() {
 
 
     //rv
     val ideaList = ArrayList<IdeaRv>()
 
-    lateinit var binding: FragmentIdeaBinding
+    private var binding: FragmentIdeaBinding?=null
 
 
     override fun onCreateView(
@@ -35,19 +35,19 @@ object IdeaFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentIdeaBinding.inflate(inflater, container, false)
-        return binding.root
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //viewModel
+        //获取viewModel
         val vm = ViewModelProvider(this).get(IdeaViewModel::class.java)
-
-
         //初始化rv
         lifecycleScope.launch {
-            initIdeaRv(vm, binding)
+            binding?.let {
+                initIdeaRv(vm, it)
+            }
         }
     }
 

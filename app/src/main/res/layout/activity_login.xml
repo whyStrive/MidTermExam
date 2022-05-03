@@ -115,48 +115,70 @@
         android:layout_width="30dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="36dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="72dp"
         android:layout_marginEnd="132dp"
         app:layout_constraintEnd_toEndOf="@+id/btn_login"
         app:layout_constraintLeft_toLeftOf="@+id/btn_login"
         app:layout_constraintTop_toBottomOf="@id/btn_login" />
 
     <TextView
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="@+id/cb_login"
-        app:layout_constraintTop_toTopOf="@id/cb_login"
+        android:text="记住账户"
         app:layout_constraintBottom_toBottomOf="@+id/cb_login"
-        android:text="记住账户"/>
+        app:layout_constraintLeft_toRightOf="@+id/cb_login"
+        app:layout_constraintTop_toTopOf="@id/cb_login" />
+
+    <CheckBox
+        android:id="@+id/cb_autoLogin"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/cb_login"
+        app:layout_constraintEnd_toEndOf="@+id/cb_login"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/cb_login" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="自动登录"
+        app:layout_constraintBottom_toBottomOf="@+id/cb_autoLogin"
+        app:layout_constraintStart_toEndOf="@+id/cb_autoLogin"
+        app:layout_constraintTop_toTopOf="@+id/cb_autoLogin" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:orientation="horizontal"
         app:cardCornerRadius="12dp"
-        app:layout_constraintTop_toBottomOf="@id/btn_login"
         app:layout_constraintLeft_toLeftOf="@+id/btn_login"
         app:layout_constraintRight_toRightOf="@+id/btn_login"
-        android:layout_marginTop="120dp"
-        android:orientation="horizontal">
+        app:layout_constraintTop_toBottomOf="@id/btn_login">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="start|center"
+            android:layout_marginStart="15dp"
             android:text="没有账号?"
             android:textSize="17sp"
             tools:layout_editor_absoluteX="102dp"
-            tools:layout_editor_absoluteY="701dp"
-            android:layout_marginStart="15dp"
-            android:layout_gravity="start|center"/>
+            tools:layout_editor_absoluteY="701dp" />
+
         <TextView
             android:id="@+id/tv_login_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="17sp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="15dp"
+            android:gravity="end|center"
             android:text="注册"
             android:textColor="#0062FF"
-            android:layout_gravity="end"
-            android:gravity="end|center"
-            android:layout_marginEnd="15dp"/>
+            android:textSize="17sp" />
     </androidx.cardview.widget.CardView>
 
 

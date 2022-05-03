@@ -1,5 +1,6 @@
 package com.redrock.midtermexam.view.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +8,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.midtermexam.R
+import com.redrock.midtermexam.model.Color
 import com.redrock.midtermexam.model.ColorRv
 import com.redrock.midtermexam.util.toast
 
@@ -22,22 +24,12 @@ class ColorRvAdapter(private val colorList: ArrayList<ColorRv>) :
     RecyclerView.Adapter<ColorRvAdapter.ViewHolder>() {
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        //懒加载获取view
-        val name: TextView by lazy {
-            view.findViewById(R.id.tv_color_name)
-        }
-        val hex: TextView by lazy {
-            view.findViewById(R.id.tv_color_hex)
-        }
-        val rgb: TextView by lazy {
-            view.findViewById(R.id.tv_color_rgb)
-        }
-        val cmyk: TextView by lazy {
-            view.findViewById(R.id.tv_color_cmyk)
-        }
-        val constraintLayout: ConstraintLayout by lazy {
-            view.findViewById(R.id.constraintLayout)
-        }
+        //获取view
+        val name: TextView = view.findViewById(R.id.tv_color_name)
+        val hex: TextView = view.findViewById(R.id.tv_color_hex)
+        val rgb: TextView = view.findViewById(R.id.tv_color_rgb)
+        val cmyk: TextView = view.findViewById(R.id.tv_color_cmyk)
+        val constraintLayout: ConstraintLayout = view.findViewById(R.id.constraintLayout)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -55,7 +47,8 @@ class ColorRvAdapter(private val colorList: ArrayList<ColorRv>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val color = colorList[position]
-        holder.constraintLayout.setBackgroundColor(color.hex.toInt())
+        Log.d("www", "(:)-->> $color");
+        holder.constraintLayout.setBackgroundColor(android.graphics.Color.parseColor("#"+color.hex))
         holder.apply {
             name.text = color.name
             hex.text = color.hex

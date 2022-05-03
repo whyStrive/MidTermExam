@@ -7,9 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.midtermexam.databinding.ActivityLoginBinding
 import com.redrock.midtermexam.MainActivity
-import com.redrock.midtermexam.model.LoginModel
 import com.redrock.midtermexam.util.start
-import com.redrock.midtermexam.util.startWithData
 import com.redrock.midtermexam.util.toast
 import com.redrock.midtermexam.view.viewmodel.LoginViewModel
 import kotlinx.coroutines.launch
@@ -49,14 +47,32 @@ class LoginActivity : AppCompatActivity() {
                 "请在上方输入正确的手机号和用户名！".toast()
             } else {
                 //记住账户
-                val editor = getSharedPreferences("account", Context.MODE_PRIVATE).edit()
+                val editor1 = getSharedPreferences("account", Context.MODE_PRIVATE).edit()
                 if (!binding.cbLogin.isChecked) {
-                    editor.clear()
+                    editor1.apply {
+                        clear()
+                        putBoolean("remember",false)
+                        apply()
+                    }
                 } else {
-                    editor.apply {
+                    editor1.apply {
                         putLong("phoneNum", binding.etLoginPhoneNum.text.toString().toLong())
                         putString("name", binding.etLoginName.text.toString())
                         putBoolean("remember", true)
+                        apply()
+                    }
+                }
+                //自动登录
+                val editor2 = getSharedPreferences("auto_login", Context.MODE_PRIVATE).edit()
+                if (!binding.cbAutoLogin.isChecked) {
+                    editor2.apply {
+                        clear()
+                        putBoolean("auto_login", false)
+                        apply()
+                    }
+                } else {
+                    editor2.apply {
+                        putBoolean("auto_login", true)
                         apply()
                     }
                 }
@@ -70,9 +86,10 @@ class LoginActivity : AppCompatActivity() {
                         "账号不存在！请检查账号后重新登录或注册新账号".toast()
                     }
                     //保存token
-                    editor.apply {
-                        putString("token",result.data.token)
-                        putString("refreshToken",result.data.refreshToken)
+                    editor1.apply {
+                        putString("token", result.data.token)
+                        putString("refreshToken", result.data.refreshToken)
+                        apply()
                     }
                 }
             }
@@ -101,17 +118,39 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         }
-
         //检查是否保存账户，是则自动输入内容
-        val prefs = getSharedPreferences("account", Context.MODE_PRIVATE)
-        if (prefs.getBoolean("remember", false)) {
-            val phoneNum = prefs.getLong("phoneNum", 0L)
-            val name = prefs.getString("name", "保存账户失败")
+        val sp1 = getSharedPreferences("account", Context.MODE_PRIVATE)
+        if (sp1.getBoolean("remember", false)) {
+            val phoneNum = sp1.getLong("phoneNum", 0L)
+            val name = sp1.getString("name", "保存账户失败")
             binding.etLoginPhoneNum.setText(phoneNum.toString())
             binding.etLoginName.setText(name)
             binding.cbLogin.isChecked = true
         } else {
             binding.cbLogin.isChecked = false
+        }
+        lifecycleScope.launch {
+            //检查是否自动登录
+            val sp2 = getSharedPreferences("auto_login", Context.MODE_PRIVATE)
+            if (sp2.getBoolean("auto_login", false)) {
+                val phoneNum = sp1.getLong("phoneNum", 0L)
+                val result = vm.getLoginResult(phoneNum.toLong())
+                if (result.message == "OK") {
+                    start<MainActivity>()
+                } else if (result.message == "账号不存在") {
+                    "账号不存在！请检查账号后重新登录或注册新账号".toast()
+                }
+                //保存token
+                val editor1 = getSharedPreferences("account", Context.MODE_PRIVATE).edit()
+                editor1.apply {
+                    putString("token", result.data.token)
+                    putString("refreshToken", result.data.refreshToken)
+                    apply()
+                }
+                binding.cbAutoLogin.isChecked = true
+            } else {
+                binding.cbAutoLogin.isChecked = false
+            }
         }
     }
 }
